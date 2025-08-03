@@ -8,11 +8,16 @@ var app = require('../app');
 var debug = require('debug')('questionpage-server:server');
 var http = require('http');
 
+var dotEnv=require('dotenv');
+dotEnv.config(); //agar hume .env ke sath work krna hai to dotenv install krna pdega
+//  fir ise configure krna pdega
+
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT);  //process is predefined var,port is key which written in .env
+// The process.env property returns an object containing the user environment. 
 app.set('port', port);
 
 /**
